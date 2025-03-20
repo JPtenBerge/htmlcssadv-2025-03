@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ol {
+            display: grid;
+            grid-template-columns: max-content 1fr;
+            gap: 10px;
+        }
+        li {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: subgrid;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <ol>
+            <li>
+                <label for="input-username">Username/email:</label>
+                <input id="input-username" name="username" />
+            </li>
+            <li>
+                <label for="input-password">Password:</label>
+                <input id="input-password" type="password" name="password" />
+            </li>
+            <li>
+                <input id="input-remember-me" type="checkbox" />
+                <label for="input-remember-me">Onthou mij</label>
+            </li>
+            <li>
+                <button>Submit</button>
+            </li>
+        </ol>
+    </form>
+</body>
+</html>

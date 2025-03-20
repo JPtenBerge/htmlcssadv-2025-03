@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #blokjes {
+                display: grid;
+                grid-template-columns: 50px 1fr 200px;
+                grid-template-rows: 100px 40px;
+
+                div:nth-child(1) {
+                    background: lightblue;
+                    grid-row: 2;
+                    grid-column: 2 / 4;
+                    /* grid-column-start: 2;
+                    grid-column-end: 4; */
+                }
+                div:nth-child(2) {
+                    background: lightgoldenrodyellow;
+                }
+                div:nth-child(3) {
+                    background: lightpink;
+                }
+                div:nth-child(4) {
+                    background: lightgray;
+                }
+                div:nth-child(5) {
+                    background: rgba(0, 255, 0, 0.1);
+                    grid-row: 1 / span 2;
+                    grid-column: 3;
+                }
+                div:nth-child(6) {
+                    background: lightsalmon;
+                }
+            }
+
+            html, body {
+                height: 100%;
+                padding: 0;
+                margin: 0;
+            }
+
+            body {
+                display: grid;
+                grid-template:
+                    '. header header header' 60px
+                    'nav maincnt secondmain ads' 1fr
+                    'footer footer footer footer' 50px / 100px 1fr 4fr 100px;
+            }
+            header {
+                grid-area: header;
+                background: lightgoldenrodyellow;
+            }
+            nav {
+                grid-area: nav;
+                background: lightblue;
+            }
+            main {
+                grid-area: maincnt;
+                background: lightpink;
+            }
+            .special {
+                grid-area: secondmain;
+                background: lightseagreen;
+            }
+            aside {
+                grid-area: ads;
+                background: lightgreen;
+            }
+            footer {
+                grid-area: footer;
+                background: lightgray;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <div id="blokjes">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div> -->
+
+        <header>Logo met slogan</header>
+
+        <nav>
+            <ol>
+                <li><a href="/start">Start</a></li>
+                <li><a href="/portfolio">Portfolio</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ol>
+        </nav>
+
+        <main>
+            <h1>Bla 1!</h1>
+        </main>
+        <main class="special">
+            <h1>Bla 2!</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem, quaerat?</p>
+            <p>Adipisci, sapiente qui. Quibusdam sed earum rem error voluptates ipsum.</p>
+            <p>Illo et cumque molestias laudantium harum possimus, commodi dolor? Tenetur.</p>
+        </main>
+
+        <aside>ad ad ad</aside>
+
+        <footer>&copy; JP 2024</footer>
+    </body>
+</html>

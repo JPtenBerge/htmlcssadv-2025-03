@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="reset.css">
+        <style>
+            #blokjes {
+                background: orange;
+                padding: 10px;
+                display: flex;
+                /* align-items: center; */
+                align-content: center;
+                flex-wrap: wrap;
+                /* width: 400px; */
+                height: 300px;
+                justify-content: center;
+                flex-direction: column;
+
+
+                div {
+                    background: red;
+                    margin: 5px;
+                    padding: 10px;
+                }
+            }
+
+            #layout {
+                display: flex;
+                /* flex-direction: row-reverse; */
+            }
+            nav {
+                background: lightgreen;
+                order: 48584848;
+            }
+            main {
+                background: lightpink;
+                flex-grow: 1;
+                order: 212;
+            }
+            .special {
+                background: lightblue;
+                /* flex-grow: 19; */
+                flex: 2;
+                order: 309;
+
+                /* background: #ccc url('') no-repeat 100%; */
+            }
+            aside {
+                background: lightgoldenrodyellow;
+                order: 101;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="blokjes">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>10</div>
+        </div>
+
+        <div id="layout">
+            <nav>
+                <ol>
+                    <li><a href="/start">Start</a></li>
+                    <li><a href="/portfolio">Portfolio</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ol>
+            </nav>
+
+            <main>
+                <h1>Bla!</h1>
+
+            </main>
+            <main class="special">
+                <h1>Bla!</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem, quaerat?</p>
+                <p>Adipisci, sapiente qui. Quibusdam sed earum rem error voluptates ipsum.</p>
+                <p>Illo et cumque molestias laudantium harum possimus, commodi dolor? Tenetur.</p>
+                <p>Neque dicta architecto recusandae nisi harum deserunt eveniet, consectetur quas.</p>
+                <p>Fugiat at placeat aliquid impedit similique quasi recusandae, asperiores perspiciatis?</p>
+                <p>Fuga illo amet explicabo est totam veritatis! Dignissimos, debitis minima!</p>
+                <p>Nisi, reiciendis accusantium impedit ratione sunt debitis labore sint voluptatibus?</p>
+                <p>Earum vel, dolor tenetur odit fugit veniam? Nesciunt, nemo iste!</p>
+                <p>Consequatur minima tenetur dignissimos sed natus voluptatum obcaecati. Est, nobis.</p>
+                <p>Dolorum rerum voluptate, nostrum natus autem deserunt. Excepturi, ut tempora.</p>
+            </main>
+
+            <aside>ad ad ad</aside>
+        </div>
+    </body>
+</html>

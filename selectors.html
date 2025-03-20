@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body {
+                transition: all 4s ease;
+            }
+            body:hover {
+                transform: rotate(360deg);
+            }
+
+            blockquote {
+                background: lightgoldenrodyellow;
+                padding: 30px;
+                margin: 10px;
+                transition: all 0.4s ease;
+                position: relative;
+            }
+            blockquote::after {
+                /* pseudo-elements */
+                position: absolute;
+                top: -20px;
+                right: 10px;
+                content: '"';
+                font-size: 4rem;
+                transition: all 0.4s ease;
+            }
+            blockquote:hover {
+                /* pseudo-classes */
+                background: lightsalmon;
+                transform: rotate(960deg);
+            }
+            blockquote:hover::after {
+                /* pseudo-elements */
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Selectors</h1>
+
+        <blockquote>Een of ander wijs citaat.</blockquote>
+    </body>
+</html>
