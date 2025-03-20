@@ -2,7 +2,8 @@
 
 ## Toffe links
 
-
+- https://caniuse.com - browser support voor web features checken
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template) - toffe docs, met voorbeelden en browser support
 
 ## Waarom niet `<div>` overal?
 
