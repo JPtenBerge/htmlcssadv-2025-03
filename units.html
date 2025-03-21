@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* a11y */
+        .px {
+            /* houdt geen rekening met lettergrootte-instelling */
+            font-size: 16px; /* stop using this for fonts */
+        }
+        .em { /* relatief tov PARENT element */
+            font-size: 0.8em;
+        }
+        .rem { /* relatief tov browserinstelling */
+            font-size: 0.8rem; /* favoriete keuze van de meeste frontend devvers */
+        }
+        .vw {
+            font-size: 4vw;
+        }
+    </style>
+</head>
+<body>
+
+    <p class="px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, quisquam?</p>
+    <p class="em">Totam praesentium odio soluta corrupti at tempora, qui ex eius.</p>
+    <p class="rem">Optio tempore laboriosam saepe iure expedita repudiandae eos! Distinctio, fuga!</p>
+    <p class="vw">Iure atque unde incidunt nostrum eligendi repellendus rem adipisci quas?</p>
+    
+    <ul>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Tempora autem omnis deleniti harum?</li>
+        <li class="rem">
+            Nam sunt voluptatem fugiat saepe.
+            <ul>
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Tempora autem omnis deleniti harum?</li>
+                <li class="rem">
+                    Nam sunt voluptatem fugiat saepe.
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Tempora autem omnis deleniti harum?</li>
+                        <li>Nam sunt voluptatem fugiat saepe.</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</body>
+</html>

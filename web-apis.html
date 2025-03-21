@@ -5,13 +5,60 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
         <style>
+            :root {
+                --die-ene-speciale-kleur: yellow;
+            }
+
             #chat-messages {
                 display: flex;
                 flex-direction: column-reverse;
             }
+            .special-color {
+                color: var(--die-ene-speciale-kleur, blue);
+            }
+
+            @keyframes blinkert {
+                from {
+                    opacity: 1;
+                    font-size: 200%;
+                    color: red;
+                }
+                to {
+                    opacity: 0;
+                    font-size: 100%;
+                    color: black;
+                }
+            }
+
+            blink {
+                animation: blinkert 0.3s infinite alternate-reverse;
+            }
         </style>
     </head>
     <body>
+        <h1>Web Workers</h1>
+        <!-- 1 1 2 3 5 8 13 21 34 55 89 -->
+
+        <input type="number" id="input-fibo" />
+        <button onclick="fibo();">Bereken</button>
+        <output id="fibo-result"></output>
+
+        <hr />
+        <blink>Hier de blinkert</blink>
+
+        <script>
+            const fibo = () => {
+                let n = document.querySelector('#input-fibo').value;
+                document.querySelector('#fibo-result').innerText = 'Bezig met berekenen!';
+
+                let worker = new Worker('fibo-worker.js');
+                worker.addEventListener('message', e => {
+                    document.querySelector('#fibo-result').innerText = e.data;
+                });
+                worker.postMessage(+n);
+            };
+        </script>
+
         <h1>Web Sockets</h1>
         <!-- verbinding die open wordt gehouden -->
 
@@ -24,7 +71,7 @@
         <ol id="chat-messages">
             <template id="chat-template">
                 <li>
-                    <strong class="name">(naam)</strong>:
+                    <strong class="name special-color">(naam)</strong>:
                     <span class="content">(bericht)</span>
                 </li>
             </template>

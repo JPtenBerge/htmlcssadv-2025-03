@@ -1,0 +1,31 @@
+Hallo
+
+<h1 class="text-3xl font-bold underline">Hello world 3!</h1>
+
+<form (submit)="say()" [formGroup]="addMessageForm">
+    <input
+        id="input-name"
+        class="m-2 border-1 rounded-lg focus:shadow-sm focus:shadow-amber-800 outline-0 p-2"
+        formControlName="name"
+    />
+    <input
+        id="input-content"
+        class="m-2 border-1 rounded-lg focus:shadow-sm focus:shadow-amber-800 outline-0 p-2"
+        formControlName="content"
+    />
+    value: {{addMessageForm.value | json}}
+    <button class="border-2 p-3 bg-amber-300 rounded-3xl cursor-pointer">Zeg!</button>
+    <button class="btn-primary">Zeg!</button>
+    <button class="btn-primary">Zeg!</button>
+    
+</form>
+
+<ol class="flex flex-col-reverse">
+    @for (message of messages; track message) {
+        <li>
+            <strong>{{ message.name }}</strong>
+            :
+            {{ message.content }}
+        </li>
+    }
+</ol>
