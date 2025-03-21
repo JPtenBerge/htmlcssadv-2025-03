@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #chat-messages {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Web Sockets</h1>
+        <!-- verbinding die open wordt gehouden -->
+
+        <form onsubmit="say(); return false;">
+            <input id="input-name" />
+            <input id="input-content" />
+            <button>Zeg!</button>
+        </form>
+
+        <ol id="chat-messages">
+            <template id="chat-template">
+                <li>
+                    <strong class="name">(naam)</strong>:
+                    <span class="content">(bericht)</span>
+                </li>
+            </template>
+        </ol>
+
+        <script>
+            let socket = new WebSocket('ws://localhost:3000');
+            socket.addEventListener('open', () => console.log('Socket open!'));
+            socket.addEventListener('close', () => console.log('Socket dicht!'));
+            socket.addEventListener('message', e => {
+                let message = JSON.parse(e.data);
+
+                let template = document.querySelector('#chat-template').content;
+                let clone = template.cloneNode(true);
+
+                clone.querySelector('.name').innerText = message.name;
+                clone.querySelector('.content').innerText = message.content;
+
+                document.querySelector('#chat-messages').appendChild(clone);
+            });
+
+            const say = () => {
+                let message = {
+                    name: document.querySelector('#input-name').value,
+                    content: document.querySelector('#input-content').value,
+                };
+                socket.send(JSON.stringify(message));
+                document.querySelector('#input-content').value = '';
+                document.querySelector('#input-content').focus();
+            };
+        </script>
+
+        <h1>Web Storage</h1>
+        <!-- Twee smaken: local storage / session storage
+
+    hele simpele API. security - XSS. JWT
+
+    cookie - HttpOnly    supercookie -->
+
+        <dl>
+            <dt>Local counter:</dt>
+            <dd id="local-counter">(nog niks)</dd>
+            <dt>Session counter:</dt>
+            <dd id="session-counter">(nog niks)</dd>
+        </dl>
+
+        <script>
+            localStorage.counter ??= 0; // undefined / null
+            localStorage.counter++;
+            document.querySelector('#local-counter').innerText = localStorage.counter;
+
+            sessionStorage.counter ??= 0; // undefined / null
+            sessionStorage.counter++;
+            document.querySelector('#session-counter').innerText = sessionStorage.counter;
+        </script>
+    </body>
+</html>
